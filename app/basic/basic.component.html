@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <p>{{pageTitle}}</p>
+        <nav class="navbar col-xs-6 col-sm-12 col-md-12 col-lg-12 pull-left">
+
+            <div class="navbar-header">
+                <button type="button" class="pull-left navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <form class="col-xs-4 col-sm-4 col-md-12 col-lg-12 navbar-form navbar-left">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default" (click)="sendValues()">Get Data</button>
+                    </div>
+                    <div class="form-group">
+                        <file-reader></file-reader>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">Clear Filter</button>
+                    </div>
+                </form>
+            </div>
+
+        </nav>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-4 col-md-4 .col-lg-4 pull-right" id="timeRange">
+            <label class="hidden-xs">Select Date/Time Range</label>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Start" [(ngModel)]="start_range">
+                <div [ngClass]="{'start-range': isStartValid }" class="hidden-class">Please enter number from 1 to 24. And start should be smaller than end.</div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="End" [(ngModel)]="end_range">
+                <div [ngClass]="{'end-range': isEndValid }" class="hidden-class">Please enter number from 1 to 24. And start should be smaller than end.</div>
+            </div>
+            <div class="hidden-xs">
+                <p>Max car count: {{ carCount.count }}</p>
+                <p>At {{ carCount.time }}</p>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-8 .col-lg-8">
+            <div class="col-md-12">
+                <div style="display: block;">
+                    <canvas baseChart width="400" height="400"
+                            [datasets]="lineChartData"
+                            [labels]="lineChartLabels"
+                            [options]="lineChartOptions"
+                            [colors]="lineChartColors"
+                            [legend]="lineChartLegend"
+                            [chartType]="lineChartType">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 hidden-sm hidden-md hidden-lg">
+            <p>Max car count: {{ carCount.count }}</p>
+            <p>At {{ carCount.time }}</p>
+        </div>
+    </div>
+</div>

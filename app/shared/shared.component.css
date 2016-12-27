@@ -1,0 +1,22 @@
+.navbar-toggle .icon-bar {
+    background-color: black;
+}
+.navbar-toggle {
+    border: 1px solid black;
+}
+
+#myNavbar{
+    min-width: 250px;
+}
+@media(max-width:767px){
+    #timeRange{
+        position: absolute;
+        top: 115px;
+        right:10px;
+    }
+    .form-group{
+        width: 45%;
+        margin-left: 5px;
+        float: left;
+    }
+}

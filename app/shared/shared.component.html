@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <nav class="navbar">
+
+            <div class="navbar-header">
+                <button type="button" class="pull-left navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <p class="navbar-brand">{{pageTitle}}</p>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <form class="col-xs-4 col-sm-4 col-md-6 .col-lg-6 navbar-form navbar-left">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default" (click)="sendValues()">Get Data</button>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="API URL" [(ngModel)]="api_url" name="api_url">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">Clear Filter</button>
+                    </div>
+                </form>
+            </div>
+
+        </nav>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 .col-lg-8">
+            <my-chart></my-chart>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 .col-lg-4">
+            <label>Select Date/Time Range</label>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Start" [(ngModel)]="start_range">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="End" [(ngModel)]="end_range">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 .col-lg-4">
+            <p>Max car count: 112</p>
+            <p>On 03.05.2016 at 22:15</p>
+        </div>
+    </div>
+</div>
