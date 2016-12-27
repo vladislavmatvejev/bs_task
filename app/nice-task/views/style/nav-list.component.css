@@ -1,0 +1,7 @@
+.api-validation {
+    background-color: red;
+    display: block !important;
+}
+.hidden-class{
+    display: none;
+}

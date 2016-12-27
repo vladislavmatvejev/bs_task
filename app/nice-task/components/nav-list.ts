@@ -9,45 +9,8 @@ import {NiceService} from "../services/nice.service";
 // Component decorator
 @Component({
     selector: 'api-nav',
-    template: `
-        <nav class="navbar col-xs-6 col-sm-12 col-md-12 col-lg-12 pull-left">
-
-            <div class="navbar-header">
-                <button type="button" class="pull-left navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <form class="col-xs-4 col-sm-4 col-md-12 col-lg-12 navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-default" (click)="getData()">Get Data</button>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="API URL" [(ngModel)]="api_url" name="api_url" style="min-width: 195px;">
-                        <div [ngClass]="{'api-validation': isUrlValid }" class="hidden-class">Please enter the API url</div>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-default">Clear Filter</button>
-                    </div>
-                </form>
-            </div>
-
-        </nav>
-    `,
-    styleUrls : ['app/shared/shared.component.css'],
-    styles: [
-        `
-  .api-validation {
-    background-color: red;
-    display: block !important;
-  }
-  .hidden-class{
-    display: none;
-  }
-  `
-    ]
+    templateUrl: 'app/nice-task/views/nav-list.component.html',
+    styleUrls : ['app/shared/shared.component.css', 'app/nice-task/views/style/nav-list.component.css']
 })
 // Component class
 export class TimeTableListComponent implements OnChanges{

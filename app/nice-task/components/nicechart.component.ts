@@ -7,74 +7,8 @@ import {NiceChartService} from "../services/nicechart.service";
 // Component decorator
 @Component({
     selector: 'my-chart',
-    template: `
-        <div class="row">
-        <div class="col-xs-6 col-sm-4 col-md-4 .col-lg-4 pull-right" id="timeRange">
-            <label class="hidden-xs">Select Date/Time Range</label>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Start" [(ngModel)]="start_range">
-                <div [ngClass]="{'start-date': isStartDateValid }" class="hidden-class">Please enter date with following format: YYYY-MM-DD</div>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="End" [(ngModel)]="end_range">
-                <div [ngClass]="{'end-date': isEndDateValid }" class="hidden-class">Please enter date with following format: YYYY-MM-DD. End date should be bigger than start date.</div>
-            </div>
-            <div class="hidden-xs">
-                <p>Max car count: {{ mostCars.count }}</p>
-                <p>On {{ mostCars.time }}</p>
-            </div>
-        </div>
-            <div class="col-xs-12 col-sm-12 col-md-8 .col-lg-8">
-                    <div class="col-md-12">
-                        <div style="display: block;">
-                            <canvas baseChart width="400" height="400"
-                                    [datasets]="lineChartData"
-                                    [labels]="lineChartLabels"
-                                    [options]="lineChartOptions"
-                                    [colors]="lineChartColors"
-                                    [legend]="lineChartLegend"
-                                    [chartType]="lineChartType">
-                            </canvas>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 hidden-sm hidden-md hidden-lg">
-            <p>Max car count: {{ mostCars.count }}</p>
-            <p>On {{ mostCars.time }}</p>
-        </div>
-    </div>
-    `,styles: [
-        `
-  .start-date {
-    background-color: red;
-    display: block !important;
-  }
-  .end-date {
-    background-color: red;
-    display: block !important;
-  }
-  .hidden-class{
-    display: none;
-  }
-  #myNavbar{
-    min-width: 250px;
-  }
-        @media(max-width:767px){
-            #timeRange{
-                position: absolute;
-                top: 115px;
-                right:10px;
-            }
-            .form-group{
-                width: 45%;
-                margin-left: 5px;
-                float: left;
-            }
-        }
-  `
-    ]
+    templateUrl: 'app/nice-task/views/nicechart.component.html',
+    styleUrls : ['app/nice-task/views/style/nicechart.component.css']
 })
 
 export class NiceChartComponent implements OnChanges{

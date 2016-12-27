@@ -4,19 +4,7 @@ import {TextFileReaderService} from "./filereader/filereader.service";
 
 @Component({
     templateUrl: 'app/basic/basic.component.html',
-    styleUrls : ['app/shared/shared.component.css'],
-    styles: [`
-  .start-range {
-    background-color: red;
-    display: block !important;
-  }
-  .end-range {
-    background-color: red;
-    display: block !important;
-  }
-  .hidden-class{
-    display: none;
-  }`],
+    styleUrls : ['app/shared/shared.component.css', 'app/basic/basic.component.css'],
     providers : [ChartDataService, TextFileReaderService]
 })
 export class BasicComponent {
@@ -54,7 +42,10 @@ export class BasicComponent {
     numberValidator(str: string) :boolean{
         if(parseInt(str) > 0 && parseInt(str) < 25){
             return false
-        }else {
+        }else if(str == ''){
+            return true;
+        }
+        else{
             return true;
         }
     }
@@ -67,8 +58,10 @@ export class BasicComponent {
     setValidation(){
         this.setStartValid(this.numberValidator(this.start_range));
         this.setEndValid(this.numberValidator(this.end_range));
-        if(this.chartDataService.toMinutes(this.start_range) > this.chartDataService.toMinutes(this.end_range)){
-            this.isEndValid = true;
+        if(this.end_range && this.start_range){
+            if(this.chartDataService.toMinutes(this.start_range) > this.chartDataService.toMinutes(this.end_range)){
+                this.isEndValid = true;
+            }
         }
     }
     sendValues(){

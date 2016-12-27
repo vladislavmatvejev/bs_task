@@ -1,0 +1,11 @@
+.start-range {
+    background-color: red;
+    display: block !important;
+}
+.end-range {
+    background-color: red;
+    display: block !important;
+}
+.hidden-class{
+    display: none;
+}
