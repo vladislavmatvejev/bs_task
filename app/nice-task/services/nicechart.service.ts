@@ -42,25 +42,24 @@ export class NiceChartService{
         this.mostCarsDay.day = arr[1];
     }
     getDataForChart():void{
-        this.getRangeDays(this.dateRange).forEach((value, index)=>{
-            let count = 0;
-            this.daysSortedData[value] = [];
-            this.times.forEach((val, ind)=>{
-                if(value == this.tsToDate(val.ArrivalTime)){
-                    this.daysSortedData[value].push(val);
-                    count++;
-                }
-                if(count > 0){
-
-                    if(this.mostCarsDay.count < count){
-                        this.setCarsDayCount([count, value]);
-                    }
-                }
-            });
-            //get data for chart
+        let count = 0;
+        let rangeDays = this.getRangeDays(this.dateRange);
+        this.sortDataByDays();
+        rangeDays.forEach((value, index)=>{
+            count = this.daysSortedData[value].length;
             if(count > 0){
                 this.labelArray.push(value);
                 this.dataArray.push(count);
+            }
+            if(this.mostCarsDay.count < count){
+                this.setCarsDayCount([count, value]);
+            }
+        });
+    }
+    sortDataByDays():void{
+        this.times.forEach((value, index) => {
+            if(this.tsToDate(value.ArrivalTime) in this.daysSortedData){
+                this.daysSortedData[this.tsToDate(value.ArrivalTime)].push(value);
             }
         });
     }
@@ -104,10 +103,11 @@ export class NiceChartService{
         let end = arr[1].split('-');
         for (let d = new Date(start[0], start[1], start[2]); d <= new Date(end[0], end[1], end[2]); d.setDate(d.getDate() + 1)) {
             rangeDays.push(this.dateBeaty(d));
+            this.daysSortedData[this.dateBeaty(d)] = [];
         }
         return rangeDays;
     }
-    dateBeaty(str){
+    dateBeaty(str): string{
         let day = str.getDate();
         let month = str.getMonth();
         let year = str.getFullYear();
