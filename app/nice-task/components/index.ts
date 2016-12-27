@@ -14,7 +14,7 @@ import {EmitterService} from '../../emitter.service';
 })
 export class SpecialComponent {
     // Event tracking properties
-    public pageTitle: string = 'Extra Special';
+    public pageTitle: string = 'Nice To Have';
     private navId = 'COMMENT_COMPONENT_LIST';
     private chartId = 'COMMENT_COMPONENT_EDIT';
 }
