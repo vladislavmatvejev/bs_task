@@ -14,7 +14,7 @@
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="API URL" [(ngModel)]="api_url" name="api_url" style="min-width: 195px;">
-                <div [ngClass]="{'api-validation': isUrlValid }" class="hidden-class">Please enter the API url</div>
+                <div [ngClass]="{'api-validation': isUrlValid }" class="alert alert-danger hidden-class">Please enter the API url</div>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-default">Clear Filter</button>
